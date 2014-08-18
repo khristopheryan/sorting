@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<h1>Sorting</h1>
+
+	<p id="unsort"></p>
+	<p id="sort"></p>
+	<p id="int"></p>
+	<button type="button" onclick="sort()">Sort</button>
+
+<script>
+	function sort() {
+		var str = ["-c10","*a10","-a10","-a1","-a2","=a3","-b2","-b100","-b23","-b99"];
+		var a;
+	    document.getElementById("unsort").innerHTML = "Unsorted: " + str;
+		str.sort();
+	    for(var i = 0; i < str.length - 1; i++)
+	    {
+	    	if(str[i].slice(0, 2) == str[i+1].slice(0, 2))
+			{
+				if(parseInt(str[i].replace( /^\D+/g, '')) > parseInt(str[i+1].replace( /^\D+/g, '')))
+				{
+					a = str[i];
+					str[i] = str[i+1];
+					str[i+1] = a;
+				}
+			}
+	    }
+	    document.getElementById("sort").innerHTML = "Sorted: " + str;
+	}
+</script>
+
+</body>
+</html> 
